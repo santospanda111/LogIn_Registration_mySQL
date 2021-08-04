@@ -38,7 +38,6 @@ class RegisterAPI(APIView):
         try:
             data=request.data
             get_data=Coordinator().post_data(data)
-            print(get_data)
             if get_data[0]==1:
                 return Response({'message': 'Username is already registered with another user.'}, status=status.HTTP_400_BAD_REQUEST)
             get_inserted_data=Coordinator().post_insert_data(data)
